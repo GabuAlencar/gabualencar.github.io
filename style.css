@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Raleway", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+#app {
+    position: relative;
+
+    min-width: 600px;
+    width: calc(100% - 200px);
+
+    min-height: 500px;
+    height: calc(100vh - 200px);
+
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.border {
+    border: 4px solid black;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.border p {
+    display: inline;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-wrap: nowrap;
+    text-indent: 5px;
+    text-transform: uppercase;
+}
+
+.border p span {
+    padding: 15px;
+}
+
+.horizontal-border {
+    height: 50px;
+    width: 100%;
+}
+
+.top-border {
+    position: absolute;
+    top: 0;
+}
+
+.top-border p {
+    animation: scroll-left 25s linear infinite;
+}
+
+.bottom-border {
+    position: absolute;
+    bottom: 0;
+}
+
+.bottom-border p {
+    animation: scroll-right 25s linear infinite;
+}
+
+.vertical-border {
+    width: 50px;
+    height: 100%;
+    writing-mode: vertical-lr;
+}
+
+.left-border {
+    position: absolute;
+    left: 0;
+    transform: rotateY(180deg) rotateX(180deg);
+}
+
+.left-border p {
+    animation: scroll-top 25s linear infinite;
+}
+
+.right-border {
+    position: absolute;
+    right: 0;
+}
+
+.right-border p {
+    animation: scroll-top 25s linear infinite;
+}
+
+.grid-container {
+    padding: 48px;
+    height: 100%;
+
+    display: grid;
+    grid-template-areas:
+    "work work connect"
+    "about logo connect"
+    "about community community";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.item {
+    background-color: #fff;
+    font-size: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: solid 2px #000;
+
+    text-transform: uppercase;
+
+    position: relative;
+    z-index: 1;
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.item:hover {
+    z-index: 2;
+    transform: scale(1.05);
+    background-color: #34e5ff;
+}
+
+.work  {
+    grid-area: work;
+}
+
+.connect  {
+    grid-area: connect;
+}
+
+.about {
+    grid-area: about;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.about > div {
+    width: 100%;
+    height: 100%;
+
+    transition: opacity 0.3s ease;
+}
+
+.about-closed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-open {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+
+    display: flex;
+    align-items: center;
+
+    text-transform: none;
+
+    line-height: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: small;
+    word-break: break-word;
+    hyphens: auto;
+
+    padding: 1rem;
+}
+
+.about-open p {
+    text-align: left;
+}
+
+.about-open img {
+    width: 150px;
+    height: 150px;
+
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    border: solid 4px #000;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.about-open a {
+    all: unset;
+
+    position: relative;
+
+    display: inline-block;
+    margin-top: 1rem;
+
+    padding: .5rem 1rem;
+    background-color: #fff;
+
+    border: solid 2px #000;
+    box-shadow: 2px 2px 2px 1px #000;
+
+    cursor: pointer;
+}
+
+.about-open a:hover {
+    top: 2px;
+    left: 2px;
+    box-shadow: none;
+}
+
+.about:hover .about-closed {
+    opacity: 0;
+}
+
+.about:hover .about-open {
+    opacity: 1;
+}
+
+.community  {
+    grid-area: community;
+}
+
+.logo {
+    grid-area: logo;
+
+    font-family: "Ojuju", sans-serif;
+    font-optical-sizing: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #247BA0;
+    color: #fff;
+}
+
+.logo:hover {
+    background-color: #247BA0;
+}
+
+.logo .nickname-container {
+    position: relative;
+}
+
+.logo .nickname {
+    position: relative;
+    z-index: 2;
+
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.logo .nickname-shadow {
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+
+    font-weight: 600;
+    color: #55c9f9;
+}
+
+.logo .name {
+    font-weight: 200;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: #daf0ff;
+}
+
+.do-not-sue-me {
+    margin-top: .5rem;
+    text-align: center;
+    color: #727272;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%)
+    }
+}
+
+@keyframes scroll-top  {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-100%)
+    }
+
+    to {
+        transform: translateX(0%)
+    }
+}
+
+@keyframes scroll-down  {
+    from {
+        transform: translateY(-100%)
+    }
+
+    to {
+        transform: translateY(0)
+
+    }
+}
+
+
+@keyframes increaseSize  {
+    0%  {
+        transform: translateX(0%);
+    }
+    100%  {
+        transform: translateX(-100%);
+    }
+}
