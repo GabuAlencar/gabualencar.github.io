@@ -237,6 +237,14 @@ a {
 
 .about:hover .about-open {
     opacity: 1;
+    min-height: 400px;
+    background-color: #34e5ff;
+    border: solid 2px #000;
+}
+
+.about:hover {
+    overflow: visible;
+    border: none;
 }
 
 .community  {
@@ -352,12 +360,15 @@ a {
         margin: 0;
     }
 
-    .about {
-        grid-area: community;
-    }
-
-    .community {
-        grid-area: about;
+    .grid-container {
+        grid-template-areas:
+            "work"
+            "about"
+            "logo"
+            "community"
+            "connect";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
