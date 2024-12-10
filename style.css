@@ -181,6 +181,8 @@ a {
     word-break: break-word;
     hyphens: auto;
 
+    overflow: auto;
+
     padding: 1rem;
 }
 
@@ -199,8 +201,11 @@ a {
     border: solid 4px #000;
 }
 
-.text-center {
+.about-wrapper {
     text-align: center;
+    position: absolute;
+    top: 0;
+    padding: 1rem .5rem;
 }
 
 .about-open a {
@@ -331,12 +336,35 @@ a {
     }
 }
 
-
 @keyframes increaseSize  {
     0%  {
         transform: translateX(0%);
     }
     100%  {
         transform: translateX(-100%);
+    }
+}
+
+@media all and (max-width: 768px){
+    #app {
+        width: 100%;
+        height: calc(100vh - 2rem);
+        margin: 0;
+    }
+
+    .about {
+        grid-area: community;
+    }
+
+    .community {
+        grid-area: about;
+    }
+}
+
+@media all and (max-height: 768px){
+    #app {
+        width: 100%;
+        height: calc(100vh - 2rem);
+        margin: 0;
     }
 }
